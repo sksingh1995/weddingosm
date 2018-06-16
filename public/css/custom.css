@@ -1,0 +1,118 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+
+.popup-vendor-on-banner li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 14px;
+  margin-top: 10px;
+}
+.popup-vendor-on-banner li a {
+  color: #fff;
+}
+
+.are-you-vendor-btn {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  border: 1px solid #fff;
+  width: 200px;
+  margin: auto;
+  display: block;
+  padding: 5px 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all ease-in 0.2s;
+}
+
+.are-you-vendor-btn:hover {
+  background: #fc2557;
+}
+
+.vendor-listing-page {
+  height: 80px;
+}
+
+.more-filter {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 25px;
+  margin-top: 0;
+  top: -10px;
+  position: relative;
+}
+.more-filter li {
+  float: left;
+  margin-right: 20px;
+}
+
+.banner-box h3 {
+  margin-top: 60px;
+}
+
+.banner-slides {
+  display: none;
+  /*display: inline-block;*/
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+  padding-bottom: 0;
+}
+
+.banner-slides li .caption h3 {
+  font-size: 21px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.banner-slides li {
+  width: 260px;
+  margin-right: 20px;
+  display: inline-block;
+  position: relative;
+  border-radius: 5px;
+  background-color: #000;
+
+  overflow: hidden;
+}
+
+.banner-slides li .caption {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+}
+
+.banner-slides li img {
+  height: auto;
+  -moz-user-select: none;
+  width: 100%;
+  display: block;
+  opacity: 0.5;
+}
+
+@media only screen and (max-width: 767px) {
+  #logo img {
+    width: 150px;
+    height: auto;
+    margin: 14px 0px 0px 60px;
+    float: left;
+  }
+  .banner-box h3 {
+    margin-top: 0px !important;
+  }
+  .popup-vendor-on-banner {
+    display: none;
+  }
+
+  .hero_single.version_2 {
+    height: 560px;
+  }
+}
