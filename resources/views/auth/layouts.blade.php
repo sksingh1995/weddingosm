@@ -6,6 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="WeddingOSM - Best Wedding Planning Site - Online Wedding Planner">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
 
       <title>WeddingOSM | Best Wedding Planning Site - Online Wedding Planner</title>
 
@@ -28,28 +29,18 @@
 
 <body id="{{Request::segment(2)}}_bg">
 
-      <nav id="menu" class="fake_menu"></nav>
 
       <div id="preloader">
             <div data-loader="circle-side"></div>
       </div>
-
-      <div id="login">
-            <aside>
-                  <figure>
-                        <a href="/"><img src="/img/logo_sticky.png"  height="35" data-retina="true" alt="" class="logo_sticky"></a>
-                  </figure>
-                  @yield('main')
-                  <div style="text-align:center;"><a href="login.html">Are you a vendor? <span><strong>  Sign In</strong> </span></a></div>
-                  <div class="copy">© {{date('Y')}} WeddingOSM</div>
-            </aside>
+      <!-- End Preload -->
+      <div id="app">
+            @yield('main')
       </div>
-
       <script src="/js/jquery-2.2.4.min.js"></script>
       <script src="/js/common_scripts.js"></script>
-      <script src="/js/main.js"></script>
-      <script src="/assets/validate.js"></script>
-      @yield('scripts')
+
+      <script src="/js/main.js"></script> @yield('scripts')
 </body>
 
 </html>

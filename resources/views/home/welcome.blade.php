@@ -5,48 +5,11 @@
         <div class="container banner-box">
             <h3>Your Wedding, Your Way</h3>
             <p>Expolore top rated vendors, ideas and more</p>
-            <form>
-                <div class="row no-gutters custom-search-input-2">
-                    <div class="col-lg-4">
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="What are you looking for...">
-                            <i class="icon_search"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="form-group">
-                            <input class="form-control" type="text" placeholder="Where">
-                            <i class="icon_pin_alt"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <select class="wide">
-                    <option>All Categories</option>
-                    <option>Venues</option>
-                    <option>Photography</option>
-                    <option>Music</option>
-                    <option>Jewellery</option>
-                    <option>Invitations</option>
-                </select>
-                    </div>
-                    <div class="col-lg-2">
-                        <input type="submit" class="btn_search" value="Search">
-                    </div>
-                </div>
-                <!-- /row -->
-                <ul class="popup-vendor-on-banner">
-                    <li><a href=""><i class="icon-location-6"></i> Wedding Venues </a></li>
-                    <li><a href=""><i class="icon-camera-6"></i> Wedding Photography </a></li>
-                    <li><a href=""><i class="icon-music-1"></i> Wedding Music </a></li>
-                    <li><a href=""><i class="icon-diamond"></i>  Bridal Jewellery </a></li>
-                    <li><a href=""><i class="icon-book-1"></i> Wedding Invitations </a></li>
-                </ul>
-            </form>
+    @include('includes.vendor-search-form')
         </div>
 
-        <a href="register-vendor.html" style="color:#fff;">
+        <a href="{{route('vendor.register')}}" style="color:#fff;">
             <div class="fs1 are-you-vendor-btn" aria-hidden="true" data-icon="">&nbsp Are you a vendor?
-
             </div>
         </a>
 

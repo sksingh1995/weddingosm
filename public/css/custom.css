@@ -2,117 +2,127 @@
 /* Your custom styles below */
 /*============================================================================================*/
 
-.popup-vendor-on-banner li {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 14px;
-  margin-top: 10px;
+.my-account-nav{ padding-top: 13px; }
+.sticky .my-account-nav a{color:#fc2557 !important;}
+
+.popup-vendor-on-banner li{ 
+display: inline-block;
+vertical-align: middle;
+margin-right: 14px;
+margin-top: 10px;
 }
-.popup-vendor-on-banner li a {
-  color: #fff;
-}
+.popup-vendor-on-banner li a{ color:#fff;}
 
 .are-you-vendor-btn {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  right: 0;
-  font-size: 14px;
-  border: 1px solid #fff;
-  width: 200px;
-  margin: auto;
-  display: block;
-  padding: 5px 0;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: all ease-in 0.2s;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    font-size: 14px;
+    border: 1px solid #fff;
+    width: 200px;
+    margin: auto;
+    display: block;
+    padding: 5px 0;
+	cursor:pointer;
+	border-radius:4px;
+	transition:all ease-in .2s;
 }
 
-.are-you-vendor-btn:hover {
-  background: #fc2557;
-}
+.are-you-vendor-btn:hover{background:#fc2557;}
 
-.vendor-listing-page {
-  height: 80px;
-}
+.vendor-listing-page{ height:80px;}
 
-.more-filter {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 25px;
-  margin-top: 0;
-  top: -10px;
-  position: relative;
+.more-filter{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 25px;
+    margin-top: 0;
+    top: -10px;
+    position: relative;
 }
-.more-filter li {
-  float: left;
-  margin-right: 20px;
-}
+.more-filter li{ float:left; margin-right:20px;}
 
-.banner-box h3 {
-  margin-top: 60px;
-}
+.banner-box h3{ margin-top:65px !important;}
 
 .banner-slides {
-  display: none;
-  /*display: inline-block;*/
-  width: 100%;
-  text-align: center;
-  padding: 40px 0;
-  padding-bottom: 0;
+					display:none;
+                    /*display: inline-block;*/
+                    width: 100%;
+                    text-align: center;
+                    padding: 40px 0;
+                    padding-bottom: 0;
+                }
+                
+                .banner-slides li .caption h3 {
+                    font-size: 21px;
+                    color: #fff;
+                    font-weight: 500;
+                }
+                
+                .banner-slides li {
+                    width: 260px;
+                    margin-right: 20px;
+                    display: inline-block;
+                    position: relative;
+                    border-radius: 5px;
+                    background-color: #000;
+                    
+                    overflow: hidden;
+                }
+                
+                .banner-slides li .caption {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    z-index: 9;
+                    width: 100%;
+                    height: 100%;
+                    padding: 20px;
+                    color: #fff;
+                }
+                
+                .banner-slides li img {
+                    height: auto;
+                    -moz-user-select: none;
+                    width: 100%;
+                    display: block;
+                    opacity: 0.5;
+                }
+
+
+
+.thank-you-form-submit{
+    text-align: center;
+    border: 1px solid #f44;
+    box-shadow: 0 0 9px -2px #eee;
+    padding: 40px 20px;
+    margin-bottom: 30px;
 }
+.thank-you-form-submit img{ max-width: 300px; padding-top: 10px; padding-bottom: 20px; }
+.thank-you-form-submit h5{ margin-bottom: 15px;}
+.thank-you-form-submit p{ margin-bottom: 7px; }
+.thank-you-form-submit a{ color: #fe2828 !important}
 
-.banner-slides li .caption h3 {
-  font-size: 21px;
-  color: #fff;
-  font-weight: 500;
-}
 
-.banner-slides li {
-  width: 260px;
-  margin-right: 20px;
-  display: inline-block;
-  position: relative;
-  border-radius: 5px;
-  background-color: #000;
+@media only screen and (max-width:767px){
+	
+    .vendor-register-box {  padding: 20px 15px 15px;}
+    .vendor-register-welcome-text h3{ font-size: 16px; }
+   
 
-  overflow: hidden;
-}
-
-.banner-slides li .caption {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 9;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  color: #fff;
-}
-
-.banner-slides li img {
-  height: auto;
-  -moz-user-select: none;
-  width: 100%;
-  display: block;
-  opacity: 0.5;
-}
-
-@media only screen and (max-width: 767px) {
-  #logo img {
+	#logo img {
     width: 150px;
     height: auto;
     margin: 14px 0px 0px 60px;
     float: left;
-  }
-  .banner-box h3 {
-    margin-top: 0px !important;
-  }
-  .popup-vendor-on-banner {
-    display: none;
-  }
-
-  .hero_single.version_2 {
-    height: 560px;
-  }
 }
+.banner-box h3{ margin-top:0px !important;}
+.popup-vendor-on-banner{display:none;}
+
+.hero_single.version_2{ height:560px;}
+
+	
+}
+
+

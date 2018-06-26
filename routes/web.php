@@ -4,6 +4,8 @@ Route::get('/', 'HomeController@welcome')->name('home');
 
 Route::get('vendors', 'VendorController@vendors')->name('vendor.all');
 Route::get('vendor', 'VendorController@vendorDetail')->name('vendor.detail');
+Route::get('vendor/register', 'VendorController@register')->name('vendor.register');
+Route::get('vendor/register', 'VendorController@postRegister');
 
 Route::get('customer/login', 'AuthController@customerLogin')->name('customer.login');
 Route::get('customer/register', 'AuthController@customerRegister')->name('customer.register');
