@@ -24,23 +24,36 @@
       <link href="/css/icon_fonts/css/all_icons.min.css" rel="stylesheet">
 
       <!-- YOUR CUSTOM CSS -->
-      <link href="/css/custom.css" rel="stylesheet"> @yield('styles')
+      <link href="/css/custom.css" rel="stylesheet"> 
+
+      <style>
+            .has-error input,
+            .has-error select,
+            .has-error textarea {
+              border: 1px solid #ef4955;
+            }
+
+            .has-error .help-block,
+            .has-error label {
+              color: #ef4955;
+            }
+      </style>
+      @yield('styles')
 </head>
 
 <body id="{{Request::segment(2)}}_bg">
 
-
-      <div id="preloader">
-            <div data-loader="circle-side"></div>
-      </div>
-      <!-- End Preload -->
       <div id="app">
-            @yield('main')
+        <loader></loader>
+          @yield('main')
+
       </div>
       <script src="/js/jquery-2.2.4.min.js"></script>
       <script src="/js/common_scripts.js"></script>
 
-      <script src="/js/main.js"></script> @yield('scripts')
+      <script src="/js/main.js"></script> 
+      <script src="{{asset('js/app.js')}}"></script>
+      @yield('scripts')
 </body>
 
 </html>

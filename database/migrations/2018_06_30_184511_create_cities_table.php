@@ -15,7 +15,10 @@ class CreateCitiesTable extends Migration
     {
         Schema::create('cities', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('city_name', 20);
+            $table->unsignedInteger('country_id');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
+            $table->char('city_name', 30);
+            $table->index('city_name');
             $table->boolean('active')->default(1)->comment('0 -> no, 1 -> yes, active cities will be shown to the users');
         });
     }

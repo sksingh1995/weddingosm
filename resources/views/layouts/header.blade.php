@@ -25,38 +25,18 @@
     </a>
     <nav id="menu" class="main-menu">
         <ul>
-            <li><span><a href="{{route('vendor.all')}}">Best Wedding Vendors</a></span>
-                <ul>
-                    <li><a href="{{route('vendor.detail')}}">Mehandi</a></li>
-                    <li><a href="{{route('vendor.detail')}}">Catering</a></li>
-                </ul>
-            </li>
-            <li><span><a href="#0">Best Venus</a></span>
 
-            </li>
-            <li><span><a href="#0">Bride Wear</a></span>
-                <ul>
-                    <li><a href="#"> Lehenga</a></li>
-                    <li><a href="#">Jewellery</a></li>
-                    <li><a href="#">Foot Wear</a></li>
-                </ul>
-            </li>
-            <li><span><a href="">Wedding Ideas</a></span>
-            </li>
-
+            <li><span><a href="/">Home</a></span></li>
             <li><span><a href="{{route('blogs')}}">Blog</a></span></li>
-
-            <li><span><a href="">More</a></span>
+            <li><span><a href="{{route('about')}}">About Us</a></span></li>
+            <li><span><a href="{{route('gallery')}}">Media gallery</a></span></li>
+            <li><span><a href="{{route('wishlist')}}">Wishlist page</a></span></li>
+            <li><span><a href="{{route('contact')}}">Contact</a></span></li>
+            <li><span><a href="{{route('login')}}">Login</a></span></li>
+            <li><span><a href="{{route('customer.register')}}">Register</a></span></li>
+            <li><span><a href="#">More</a></span>
                 <ul>
                     <li><a href="{{route('about')}}">About Us</a></li>
-                    <li><a href="{{route('gallery')}}">Media gallery</a></li>
-                    <li><a href="help.html">Help Section</a></li>
-                    <li><a href="faq.html">Faq Section</a></li>
-                    <li><a href="{{route('wishlist')}}">Wishlist page</a></li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
-                    <li><a href="{{route('customer.login')}}">Login</a></li>
-                    <li><a href="{{route('customer.register')}}">Register</a></li>
-
                 </ul>
             </li>
 

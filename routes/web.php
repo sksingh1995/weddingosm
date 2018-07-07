@@ -1,14 +1,33 @@
 <?php
 
 Route::get('/', 'HomeController@welcome')->name('home');
+Route::get('gallery-upload-finish', 'AuthController@galleryUploadFinish');
 
+Route::post('check-email-exists', 'MixController@checkEmailExists')->name('vendor.all');
 Route::get('vendors', 'VendorController@vendors')->name('vendor.all');
 Route::get('vendor', 'VendorController@vendorDetail')->name('vendor.detail');
-Route::get('vendor/register', 'VendorController@register')->name('vendor.register');
-Route::get('vendor/register', 'VendorController@postRegister');
+Route::get('vendor/register', 'AuthController@vendorRegister')->name('vendor.register');
+Route::post('vendor/register', 'AuthController@vendorPostRegister');
 
-Route::get('customer/login', 'AuthController@customerLogin')->name('customer.login');
+Route::get('vendor/email-verificaion/{token}', 'AuthController@vendorEmailVerification')->name('vendor.email_verification');
+
+Route::get('vendor/register/photo-gallery/{vendor}', 'AuthController@vendorPhotoGallery')->name('vendor.register.photo_gallery');
+
+Route::post('vendor/register/photo-gallery', 'AuthController@saveVendorPhotoGallery')->name('vendor.register.post_gallery');
+
+
 Route::get('customer/register', 'AuthController@customerRegister')->name('customer.register');
+Route::post('customer/register', 'AuthController@postCustomerRegister');
+
+Route::get('customer/email-verificaion/{token}', 'AuthController@customerEmailVerification')->name('customer.email_verification');
+
+Route::get('login', 'AuthController@login')->name('login');
+Route::post('login', 'AuthController@postLogin');
+
+Route::post('send-reset-password-link', 'AuthController@sendResetPasswordLink');
+Route::get('reset-password/{token}', 'AuthController@resetPassword')->name('password.reset');
+
+Route::post('reset-password', 'AuthController@postResetPassword');
 
 Route::get('blogs', 'BlogController@blogs')->name('blogs');
 

@@ -18,7 +18,8 @@ class CityTableSeeder extends Seeder
 
         foreach ($cities as $city) {
             City::firstOrCreate([
-                'city_name' => $city
+                'city_name' => $city,
+                'country_id'    =>  1
             ]);
         }
     }

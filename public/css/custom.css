@@ -105,6 +105,216 @@ margin-top: 10px;
 .thank-you-form-submit a{ color: #fe2828 !important}
 
 
+
+/* =============================================
+* RADIO BUTTONS
+=============================================== */
+
+.radio-icon-box #radios label {
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-icon-box #radios label + label {
+    margin-left: 15px;
+}
+
+.radio-icon-box input[type="radio"] {
+    opacity: 0; /* hidden but still tabable */
+    position: absolute;
+}
+
+.radio-icon-box input[type="radio"] + span {
+    border-radius: 50%;
+    padding:9px;
+    transition: all 0.4s;
+    display: inherit;
+    -webkit-transition: all 0.4s;
+    border: 1px solid #eee;
+    box-shadow: 0 0 4px -2px #ccc;
+}
+
+.radio-icon-box input[type="radio"] + span img{ width: 35px;}
+
+
+.radio-icon-box input[type="radio"]:checked + span {
+    color: #D9E7FD;
+  background-color: #efef78;
+}
+
+.radio-icon-box input[type="radio"]:focus + span {
+    color: #fff;
+}
+
+/* ================ TOOLTIPS ================= */
+
+.radio-icon-box #radios label:hover::before {
+    content: attr(for);
+    font-family: Roboto, -apple-system, sans-serif;
+    text-transform: capitalize;
+    font-size: 13px;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    background-color: #32a067;
+    color: #fff;    
+    padding:2px 5px;
+    border-radius: 3px;
+  display: block;
+  text-align: center;
+}
+
+
+/*==========Step Process========*/
+
+.multi-steps > li.is-active:before, .multi-steps > li.is-active ~ li:before {
+  content: counter(stepNum);
+  font-family: inherit;
+  font-weight: 700;
+}
+.multi-steps > li.is-active:after, .multi-steps > li.is-active ~ li:after {
+  background-color: #ededed;
+}
+
+.multi-steps {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+.multi-steps > li {
+  counter-increment: stepNum;
+  text-align: center;
+  display: table-cell;
+  position: relative;
+  color: #45c181;
+}
+.multi-steps > li:before {
+  content: "\f00c";
+  content: "\2713;";
+  content: "\10003";
+  content: "\10004";
+  content: "\2713";
+  display: block;
+  margin: 0 auto 4px;
+  background-color: #fff;
+  width: 36px;
+  height: 36px;
+  line-height: 32px;
+  text-align: center;
+  font-weight: bold;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #45c181;
+  border-radius: 50%;
+  z-index: 99;
+position: relative;
+}
+.multi-steps > li:after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  background-color: #45c181;
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  z-index:9;
+}
+.multi-steps > li:last-child:after {
+  display: none;
+}
+.multi-steps > li.is-active:before {
+  background-color: #fff;
+  border-color: #45c181;
+}
+.multi-steps > li.is-active ~ li {
+  color: #808080;
+}
+.multi-steps > li.is-active ~ li:before {
+  background-color: #ededed;
+  border-color: #ededed;
+}
+  
+/*==========Step Process==END======*/
+
+.adminAlert {
+    border-radius: 3px;
+    padding:11px 16px;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+}
+
+.adminAlert--info {
+    background: #e6f1f4;
+    border: 1px solid #cbd7de;
+}
+
+.adminAlert--flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    webkit-align-items: center;
+    apple-align-items: center;
+    khtml-align-items: center;
+    align-items: center;
+}
+
+.adminAlert__title {
+    font-size: 14px;
+    line-height: 22.65247586px;
+    font-weight: 500;
+    margin: 0 0 5px;
+}
+.adminAlert__description {
+    margin: 0;
+    font-size: 13px;
+}
+
+.adminAlert__icon {
+    -ms-flex-negative: 0;
+    webkit-flex-shrink: 0;
+    apple-flex-shrink: 0;
+    khtml-flex-shrink: 0;
+    flex-shrink: 0;
+    height: 90px;
+    width: 90px;
+    background: url(../img/sprite-alerts.svg) no-repeat scroll 50% 0 transparent;
+    display: inline-block;
+}
+
+.adminAlert__icon--pencilNote {
+    height: 60px;
+    width: 60px;
+    background-position: 0 -433px;
+}
+
+.faq-list-box i{ left: 7px !important; top: 30px !important; color: #a5a5a5 !important; }
+    
+.faq-list-box {
+    background: #fff;
+    padding: 13px 15px 0px 15px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 20px -6px #ccc;
+    margin-bottom: 20px;
+    transition: all ease-in .2s;
+}
+
+.faq-list-box h5{
+    font-size: 17px;
+    line-height: 26px;
+    margin-bottom: 10px;
+    color: #fc2557;
+    transition: all ease-in .2s;
+}
+
+.faq-list-box:hover{ background:#fc2557;  }
+.faq-list-box:hover h5{ color: #fff; }
+.faq-list-box:hover label{ color: rgba(250,250,250,0.9);}
+
+.faq-list-box ul li{ cursor: pointer; }
+
 @media only screen and (max-width:767px){
 	
     .vendor-register-box {  padding: 20px 15px 15px;}
@@ -124,5 +334,11 @@ margin-top: 10px;
 
 	
 }
+
+
+
+
+
+
 
 

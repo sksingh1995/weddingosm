@@ -20,6 +20,8 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
-    "vee-validate": "^2.1.0-beta.2"
+    "vee-validate": "^2.1.0-beta.2",
+    "vue-upload-component": "^2.8.9",
+    "vuejs-dialog": "^0.9.0"
   }
 }

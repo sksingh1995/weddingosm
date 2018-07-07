@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="WeddingOSM - Best Wedding Planning Site - Online Wedding Planner">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>WeddingOSM | Best Wedding Planning Site - Online Wedding Planner</title>
 
@@ -28,27 +29,39 @@
 
     <!-- YOUR CUSTOM CSS -->
     <link href="/css/custom.css" rel="stylesheet"> @yield('styles')
+
+    <script>
+        var base_url = "{{URL::to('')}}/";
+    </script>
 </head>
 
 <body>
-
-    <div id="page">
+    <div class="preloader" id="global-loader">
+        <div data-loader="loader"></div>
+    </div>
+    <div id="app">
+        <loader></loader>
     @include('layouts.header')
         <main>
             @yield('main')
         </main>
     @include('layouts.footer')
-
-    </div>
+    
+    <!-- Login Popup -->
     @include('popups.login')
+    </div>
 
     <div id="toTop"></div>
     <!-- Back to top button -->
 
-    <script src="/js/jquery-2.2.4.min.js"></script>
-    <script src="/js/common_scripts.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/assets/validate.js"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+    <script>
+        $(document).ready(function(){    
+            $("#global-loader").fadeOut(1500);
+        });
+    </script>
+    <script src="{{asset('js/common_scripts.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
     @yield('scripts')
 </body>
 

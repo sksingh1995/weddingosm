@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','phone'
     ];
 
     /**
@@ -24,6 +24,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
+
+    /**
+     * relationship between users and vendor_profiles
+     * @return collection
+     */
+    public function vendorProfile()
+    {
+        return $this->hasOne("App\Models\VendorProfile","user_id","id");
+    }
 }
