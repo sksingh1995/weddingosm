@@ -1,5 +1,6 @@
 <?php
 
+Route::view('test','dashboard.dashboard_layout');
 Route::get('/', 'HomeController@welcome')->name('home');
 Route::get('gallery-upload-finish', 'AuthController@galleryUploadFinish');
 

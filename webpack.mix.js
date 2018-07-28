@@ -12,3 +12,4 @@ let mix = require("laravel-mix");
  */
 
 mix.js("resources/assets/js/app.js", "public/js/app.js");
+mix.js("resources/assets/js/dashboard/main.js", "public/js/dashboard_main.js");

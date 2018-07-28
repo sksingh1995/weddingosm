@@ -54,9 +54,6 @@ Vue.component(
   require("./components/common/Loader.vue")
 );
 
-Vue.component('file-upload', require('vue-upload-component'));// file upload
-
-
 // export the event bus
 const eb = new Vue();
 export default eb;
