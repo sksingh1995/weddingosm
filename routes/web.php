@@ -1,14 +1,21 @@
 <?php
 
 Route::view('test','dashboard.dashboard_layout');
+
 Route::get('/', 'HomeController@welcome')->name('home');
+
 Route::get('gallery-upload-finish', 'AuthController@galleryUploadFinish');
 
 Route::post('check-email-exists', 'MixController@checkEmailExists')->name('vendor.all');
+
 Route::get('vendors', 'VendorController@vendors')->name('vendor.all');
+
 Route::get('vendor', 'VendorController@vendorDetail')->name('vendor.detail');
+
 Route::get('vendor/register', 'AuthController@vendorRegister')->name('vendor.register');
+
 Route::post('vendor/register', 'AuthController@vendorPostRegister');
+
 
 Route::get('vendor/email-verificaion/{token}', 'AuthController@vendorEmailVerification')->name('vendor.email_verification');
 
