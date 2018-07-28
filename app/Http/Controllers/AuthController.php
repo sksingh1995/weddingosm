@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    
+
     /**
      * shows the view of login page
      * @return view
@@ -33,7 +33,7 @@ class AuthController extends Controller
     public function postLogin(Request $req)
     {
         try {
-            
+
             $validator = Validator::make($req->all(),[
                 'email'  =>  'required|email',
                 'password'  =>  'required',
@@ -69,7 +69,11 @@ class AuthController extends Controller
      */
     public function customerRegister()
     {
-        return view('auth.customer.register');
+        $cities = City::orderBy('city_name','ASC')->get(['id','city_name as name'])->toArray();
+
+        $countries = Country::orderBy('country_name','ASC')->get(['id','country_name as name'])->toArray();
+
+        return view('auth.customer.register',compact('cities','countries'));
     }
 
 
@@ -84,11 +88,14 @@ class AuthController extends Controller
             $validator = Validator::make($req->all(),[
                 'name'  =>  'required',
                 'email'  =>  'required|email|unique:users',
+                'country'  =>  'required|exists:countries,id',
+                'city'  =>  'required|exists:cities,id',
                 'phone'  =>  'required|numeric',
                 'password'  =>  'required|min:8',
             ],[
                 'email.unique'  =>  'email address is already taken',
-                'email.exists'  =>  'please choose a valid city',
+                'country.exists'  =>  'please choose a valid country',
+                'city.exists'  =>  'please choose a valid city',
             ]);
 
             if($validator->fails()){
@@ -105,13 +112,20 @@ class AuthController extends Controller
             $user->email = $req->email;
             $user->phone = $req->phone;
             $user->password = bcrypt($req->password);
+            $user->avatar = config('params.avatar_placeholder');
             $user->token = md5($req->email.time());
-            $user->verified_by_admin = 1;
-            $user->user_type = env('CUSTOMER_USER_TYPE');
-            $user->save();
 
             // send email for verfication
             Mail::to($req->email)->send(new SignUpVerficationMail($user,route('customer.email_verification',$user->token)));
+
+            $user->save();
+
+            $user->customerProfile()->create([
+                'gender'    =>  $req->gender,
+                'country_id'    =>  $req->country,
+                'city_id'    =>  $req->city,
+            ]);
+
             return response()->json(['status'   =>  true,'message'  =>  'Account Created. Please check your email to verify your account.'],201);
         } catch (\Exception $e) {
             return response()->json(['status'   =>  false,'error'  =>  $e->getMessage()],200);
@@ -124,13 +138,16 @@ class AuthController extends Controller
      * @param  string $token token to verify users email
      * @return void
      */
-    public function customerEmailVerification($token)
-    {
+       public function customerEmailVerification($token)
+       {
         if(!$token){
             return abort(404);
         }
 
-        $user = User::whereToken($token)->where('user_type',env('CUSTOMER_USER_TYPE'))->first(['id','name','email','phone','token']);
+        $user = User::where([
+            'token' =>    $token,
+            'user_type' =>  env('CUSTOMER_USER_TYPE'),
+        ])->first(['id','name','email','phone','token']);
 
         if(!$user){
             return abort(404);
@@ -153,7 +170,7 @@ class AuthController extends Controller
         $cities = City::orderBy('city_name','ASC')->get(['id','city_name as name'])->toArray();
 
         $countries = Country::orderBy('country_name','ASC')->get(['id','country_name as name'])->toArray();
-    
+
         return view('auth.vendor.register',compact('services','cities','countries'));
     }
 
@@ -169,6 +186,7 @@ class AuthController extends Controller
                 'bn'  =>  'required',
                 'name'  =>  'required',
                 'email'  =>  'required|email|unique:users',
+                'country'  =>  'required|exists:countries,id',
                 'city'  =>  'required|exists:cities,id',
                 'service'  =>  'required|exists:services,id',
                 'phone'  =>  'required|numeric',
@@ -176,7 +194,8 @@ class AuthController extends Controller
             ],[
                 'bn.required'  =>  'business name is required',
                 'email.unique'  =>  'email address is already taken',
-                'email.exists'  =>  'please choose a valid city',
+                'country.exists'  =>  'please choose a valid country',
+                'city.exists'  =>  'please choose a valid city',
                 'service.exists'  =>  'please choose a valid service',
             ]);
 
@@ -195,22 +214,24 @@ class AuthController extends Controller
             $user->phone = $req->phone;
             $user->password = bcrypt($req->password);
             $user->token = md5($req->email.time());
+            $user->avatar = config('params.avatar_placeholder');
             $user->referral_code = env('APP_NAME').'_'.mt_rand(11111,99999999);
             $user->user_type = env('VENDOR_USER_TYPE');
-            $user->save();
 
-            //save vendor profile
-                
-            $user->vendorProfile()->create([
-                'business_name' =>  $req->bn,
-                'about_business' =>  $req->bd,
-                'country_id' =>  1,
-                'city_id' =>  $req->city,
-            ]);
-            
             // send email for verfication
             
             Mail::to($req->email)->send(new SignUpVerficationMail($user,route('vendor.email_verification',$user->token)));
+
+            $user->save();
+
+            //save vendor profile
+            $user->vendorProfile()->create([
+                'business_name' =>  $req->bn,
+                'about_business' =>  $req->bd,
+                'country_id' =>  $req->country,
+                'city_id' =>  $req->city,
+            ]);
+
             return response()->json(['status'   =>  true,'message'  =>  'vendor registered'],201);
         } catch (\Exception $e) {
             return response()->json(['status'   =>  false,'error'  =>  $e->getMessage()],200);
@@ -235,7 +256,12 @@ class AuthController extends Controller
             return abort(404);
         }
 
+        if($user->vendorProfile->registration_completed_step > 1){
+            return abort(404);
+        }
+
         $user->active = 1;
+        
         $user->save();
 
         return view('auth.vendor.faq',compact('user'));
@@ -271,7 +297,7 @@ class AuthController extends Controller
     {
 
         try {
-       
+
             $rules = array(
                 'files' => 'required|array',
                 'user'  =>  'required'
@@ -307,24 +333,24 @@ class AuthController extends Controller
 
                 foreach ($files as $key => $file) {
                     $filename = time().'_'.$file->getClientOriginalName();
-                   $file->move($path,$filename);
+                    $file->move($path,$filename);
 
-                   $uploaded_files .= ','.$path.$filename;
+                    $uploaded_files .= ','.$path.$filename;
                 }
 
-               $user->vendorProfile()->update([
+                $user->vendorProfile()->update([
                     'photos'    =>  trim($uploaded_files,',')
-               ]);
+                ]);
 
-               return response()->json(['status'   =>  true],201);
+                return response()->json(['status'   =>  true],201);
             }
 
-           return response()->json(['error'   =>  'something went wrong'],200);
+            return response()->json(['error'   =>  'something went wrong'],200);
         } catch (\Exception $e) {
-           return response()->json(['error'   =>  $e->getMessage()],200);
-        }
-        
-    }
+         return response()->json(['error'   =>  $e->getMessage()],200);
+     }
+
+ }
 
     /**
      * called when vendor user completed photo upload step after fresh
@@ -469,16 +495,16 @@ class AuthController extends Controller
             $user->token = null;
             $user->save();
 
-           return response()->json([
+            return response()->json([
                 'status'   =>  true,
                 'message'   =>  'password reset successfull'
             ]);
             
         } catch (\Exception $e) {
-           return response()->json([
-                'status'   =>  false,
-                'error'   =>  $e->getMessage()
-            ]);
-        }
-    }
+         return response()->json([
+            'status'   =>  false,
+            'error'   =>  $e->getMessage()
+        ]);
+     }
+ }
 }
