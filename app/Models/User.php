@@ -35,4 +35,16 @@ class User extends Authenticatable
     {
         return $this->hasOne("App\Models\VendorProfile","user_id","id");
     }
+
+    
+    /**
+     * relationship between users and customer_profiles
+     * @return collection
+     */
+    public function customerProfile()
+    {
+        return $this->hasOne("App\Models\CustomerProfile","customer_id","id");
+    }
+
+
 }
