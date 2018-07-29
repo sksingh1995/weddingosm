@@ -6,144 +6,248 @@
     <link href="{{asset('css/shopping-style.css')}}" rel="stylesheet">
 @endsection
 @section('main')
-<section class="hero_in general">
+
+<section class="hero_in general" style="background: url(img/wedding-shopping-banner.jpg); background-position: center;" >
       <div class="wrapper">
             <div class="container">
-                  <h1 class="fadeInUp"><span></span>About WeddingOSM</h1>
+                  <h1 class="fadeInUp"><span></span>Wedding  Shopping Cart</h1>
+                  <p>We help you plan the best for your dreams, Opportunities don't happen. You create them!</p>
             </div>
       </div>
 </section>
 <!--/hero_in-->
 
+ 
+            <div class="collection-content bg_color_1 margin_80_55">
+                        <div class="container ">
+                           <div class="row">
+                               <div class="col-xs-12 col-md-7 c-left colect-inner">
+                                   <h3 class="h2-colect-title v2">Groom</h3>
+                                   <p class="h2-colect-desc v2">New collection 2018  </p>
+
+                                   <div class="collection-item">
+                                       
+                                       <a href="#" class="hover-images"><img src="img/groom_1.jpg" alt="" class="img-responsive">
+
+                                       </a>
+
+                                       <div class="product-info v2">
+                                           <h3 class="product-title"><a href="#">Becca Lace Strappy  Underwire Bra</a></h3>
+                                       </div>
+                                   </div>
+                                   <div class="collection-item align-right align-left">
+                                       <a href="#" class="hover-images"><img src="img/groom_2.jpg" alt="" class="img-responsive"></a>
+                                       <div class="product-info v2 absolute-title">
+                                           <h3 class="product-title"><a href="#">Olivia The Wolf Lace  Hair Comb</a></h3>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="col-xs-12 col-md-5 h2-colect-ovl">
+                                   <a href="#" class="hover-images"><img src="img/groom_3.jpg" alt="collection-img" class="img-responsive"></a>
+                               </div>
+                           </div> 
+                        </div>
+                    </div>
+ 
+
+
+
+<div class="collection-content v2 bg_color_1 margin_80_55">
+                        <div class="container">
+                           <div class="row">
+                               <div class="col-xs-12 col-md-7 colect-inner c-left">
+                                   <h3 class="h2-colect-title">Bride</h3>
+                                   <p class="h2-colect-desc">New collection 2018</p>
+                                   <div class="collection-item align-right">
+                                       <a href="#" class="hover-images"><img src="img/bride_3.jpg" alt="" class="img-responsive"></a>
+                                       <div class="product-info v2">
+                                           <h3 class="product-title"><a href="#">Becca Lace Strappy  Underwire Bra</a></h3>
+                                       </div>
+                                   </div>
+                                   <div class="clearfix"></div>
+                                   <div class="collection-item align-left">
+                                       <a href="#" class="hover-images"><img src="img/bride_2.jpg" alt="" class="img-responsive"></a>
+                                       <div class="product-info v2 absolute-title">
+                                           <h3 class="product-title"><a href="#">Olivia The Wolf Lace  Hair Comb</a></h3>
+                                       </div>
+                                   </div>
+                               </div>
+                               <div class="col-xs-12 col-md-5 h2-colect-ovl v2">
+                                   <a href="#" class="hover-images"><img src="img/bride_1.jpg" alt="collection-img" class="img-responsive"></a>
+                               </div>
+                           </div> 
+                        </div>
+                    </div>
+
+
+
+
+ 
+<div class="bg_color_1" style="margin-top: -40px;">
 <div class="container margin_80_55">
-      <div class="main_title_2">
+
+	    <div class="main_title_2">
             <span><em></em></span>
-            <h2>Why Choose WeddingOSM</h2>
+            <h2>Features Products</h2>
             <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
       </div>
-      <div class="row">
-            <div class="col-lg-4 col-md-6">
-                  <a class="box_feat" href="#0">
-                        <i class="pe-7s-medal"></i>
-                        <h3>+ 1000 Customers</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris, cum no alii option, cu sit mazim libris.</p>
-                  </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                  <a class="box_feat" href="#0">
-                        <i class="pe-7s-help2"></i>
-                        <h3>H24 Support</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris, cum no alii option, cu sit mazim libris. </p>
-                  </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                  <a class="box_feat" href="#0">
-                        <i class="pe-7s-culture"></i>
-                        <h3>+ 575 Locations</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris, cum no alii option, cu sit mazim libris.</p>
-                  </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                  <a class="box_feat" href="#0">
-                        <i class="pe-7s-headphones"></i>
-                        <h3>Help Direct Line</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris, cum no alii option, cu sit mazim libris. </p>
-                  </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                  <a class="box_feat" href="#0">
-                        <i class="pe-7s-credit"></i>
-                        <h3>Secure Payments</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris, cum no alii option, cu sit mazim libris.</p>
-                  </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                  <a class="box_feat" href="#0">
-                        <i class="pe-7s-chat"></i>
-                        <h3>Support via Chat</h3>
-                        <p>Id mea congue dictas, nec et summo mazim impedit. Vim te audiam impetus interpretaris, cum no alii option, cu sit mazim libris. </p>
-                  </a>
-            </div>
-      </div>
-      <!--/row-->
-</div>
-<!-- /container -->
 
-<div class="bg_color_1">
-      <div class="container margin_80_55">
-            <div class="main_title_2">
-                  <span><em></em></span>
-                  <h2>Our Origins and Story</h2>
-                  <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
-            </div>
-            <div class="row justify-content-between">
-                  <div class="col-lg-6 wow" data-wow-offset="150">
-                        <figure class="block-reveal">
-                              <div class="block-horizzontal"></div>
-                              <img src="img/about_1.jpg" class="img-fluid" alt="">
-                        </figure>
-                  </div>
-                  <div class="col-lg-5">
-                        <p>Lorem ipsum dolor sit amet, homero erroribus in cum. Cu eos <strong>scaevola probatus</strong>. Nam
-                              atqui intellegat ei, sed ex graece essent delectus. Autem consul eum ea. Duo cu fabulas nonumes
-                              contentiones, nihil voluptaria pro id. Has graeci deterruisset ad, est no primis detracto pertinax,
-                              at cum malis vitae facilisis.</p>
-                        <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam
-                              id legimus torquatos cotidieque, usu decore <strong>percipitur definitiones</strong> ex, nihil
-                              utinam recusabo mel no. Dolores reprehendunt no sit, quo cu viris theophrastus. Sit unum efficiendi
-                              cu.</p>
-                        <p><em>CEO Marc Schumaker</em></p>
-                  </div>
-            </div>
-            <!--/row-->
-      </div>
-      <!--/container-->
-</div>
-<!--/bg_color_1-->
+      <div class="isotope-wrapper">
+			<div class="row">
+				<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
 
-<div class="container margin_80_55">
-      <div class="main_title_2">
-            <span><em></em></span>
-            <h2>Our founders</h2>
-            <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
-      </div>
-      <div id="carousel" class="owl-carousel owl-theme">
-            <div class="item">
-                  <a href="#0">
-                        <div class="title">
-                              <h4>Julia Holmes<em>CEO</em></h4>
-                        </div><img src="img/1_carousel.jpg" alt="">
-                  </a>
-            </div>
-            <div class="item">
-                  <a href="#0">
-                        <div class="title">
-                              <h4>Lucas Smith<em>Marketing</em></h4>
-                        </div><img src="img/2_carousel.jpg" alt="">
-                  </a>
-            </div>
-            <div class="item">
-                  <a href="#0">
-                        <div class="title">
-                              <h4>Paul Stephens<em>Business strategist</em></h4>
-                        </div><img src="img/3_carousel.jpg" alt="">
-                  </a>
-            </div>
-            <div class="item">
-                  <a href="#0">
-                        <div class="title">
-                              <h4>Pablo Himenez<em>Customer Service</em></h4>
-                        </div><img src="img/4_carousel.jpg" alt="">
-                  </a>
-            </div>
-            <div class="item">
-                  <a href="#0">
-                        <div class="title">
-                              <h4>Andrew Stuttgart<em>Admissions</em></h4>
-                        </div><img src="img/5_carousel.jpg" alt="">
-                  </a>
-            </div>
-      </div>
-      <!-- /carousel -->
-</div>
+					</div>
+				</div>
+				<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+				<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+					<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+				<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+				<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+				<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+				<!-- /box_grid -->
+					<div class="col-xl-3 col-lg-6 col-md-6 isotope-item popular">
+					<div class="box_grid shop_product">
+						<figure>
+							<a href="#0" class="wish_bt"></a>
+							<a href="#0"><img src="img/shop-1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>View Product</span></div></a> 
+						</figure>
+						<div class="wrapper text-left">
+							<h3><a href="#0">Lemon yellow cold shoulder with heavy gree...</a></h3>  
+							<span class="price"> <strong>$25999.00</strong> </span>
+						</div>
+						<!--<ul>
+							<li><div class="add-to-cart-btn"> Add to cart</div></li>
+							<li><div class="buy-now-btn"> Buy Now</div></li>
+						</ul>-->
+
+					</div>
+				</div>
+
+
+			
+			
+			</div>
+			
+			</div>
+			<!-- /isotope-wrapper -->
+			
+			<p class="text-center" style="margin-bottom:40px;"><a href="#0" class="btn_1 rounded add_top_30">View More</a></p>
+			
+		</div>
+		<!-- /container -->
 @endsection
