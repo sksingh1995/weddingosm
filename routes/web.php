@@ -1,6 +1,6 @@
 <?php
 
-Route::view('test','dashboard.dashboard_layout');
+Route::view('test', 'dashboard.dashboard_layout');
 
 Route::get('/', 'HomeController@welcome')->name('home');
 
@@ -19,8 +19,9 @@ Route::post('vendor/register', 'AuthController@vendorPostRegister');
 
 Route::get('vendor/email-verificaion/{token}', 'AuthController@vendorEmailVerification')->name('vendor.email_verification');
 
-Route::get('vendor/register/photo-gallery/{vendor}', 'AuthController@vendorPhotoGallery')->name('vendor.register.photo_gallery');
+Route::post('vendor/register/post-faq', 'AuthController@vendorPostFaq');
 
+Route::get('vendor/register/photo-gallery/{token}', 'AuthController@vendorPhotoGallery')->name('vendor.register.photo-gallery');
 Route::post('vendor/register/photo-gallery', 'AuthController@saveVendorPhotoGallery')->name('vendor.register.post_gallery');
 
 
@@ -48,4 +49,4 @@ Route::get('wishlist', 'WishListController@index')->name('wishlist');
 Route::get('about-us', 'StaticPagesController@aboutUs')->name('about');
 Route::get('gallery', 'StaticPagesController@gallery')->name('gallery');
 Route::get('contact-us', 'StaticPagesController@contactUs')->name('contact');
-Route::get('gallery', 'StaticPagesController@gallery')->name('gallery');
+Route::get('shopping', 'StaticPagesController@shopping')->name('shopping');

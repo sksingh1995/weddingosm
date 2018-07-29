@@ -1,0 +1,126 @@
+.h2-colect-title.v2 {
+    text-align: right;
+}
+.h2-colect-title {
+    font-size: 72px;
+    margin-bottom: 15px;
+}
+.h2-colect-title {
+    color: #fc2557; 
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.h2-colect-desc.v2 {
+    text-align: right;
+}
+.h2-colect-desc {
+    font-size: 30px;
+    margin-bottom: 92px;
+}
+.h2-colect-desc {
+    color: #acacac;
+    margin-bottom: 30px;
+    font-size: 20px;
+    letter-spacing: 0.05em;
+}
+
+
+.collection-content.v2 .c-left {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    order: 2;
+}
+
+.collection-item.align-right {
+    float: right;
+}
+
+
+.colect-inner {
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-top: 25px;
+}
+
+.product-info .product-title {
+  margin-top: 15px;
+    margin-bottom: 13px;
+    line-height: 28px;
+}
+
+.collection-item .product-info {
+    max-width: 230px;
+}
+.product-info.absolute-title {
+    position: absolute;
+    top: -92px;
+}
+
+.collection-item .product-info .product-title a {
+    color: #111111;
+    font-size: 20px;
+}
+
+.hover-images {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.hover-images:hover img {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+.collection-item.align-left {
+    margin-top: -92px;
+}
+
+.collection-item.align-right {
+    float: right;
+}
+.collection-item {
+    position: relative;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: all ease-in-out .2s;
+}
+
+
+.shop_product figure{ height: 250px; }
+.shop_product .wrapper h3{ font-size: 15px; }
+
+@media only screen and (max-width: 480px){
+
+    .collection-item img {
+    margin: 0 auto;
+}
+.collection-item {
+    text-align: center;
+}
+
+.product-info .product-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.colect-inner {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+}
+
+.product-info.absolute-title{ position: relative; top: 0; }
+.collection-item .product-info{ margin: auto; margin-bottom: 20px; }
+.h2-colect-title.v2{ text-align: center; }
+.h2-colect-desc.v2{text-align: center;}
+.collection-item.align-left{ margin-top: 0 }
+.collection-item.align-right{ float: none; }
+
+
+}

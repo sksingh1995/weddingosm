@@ -27,4 +27,9 @@ class Service extends Model
     {
         $this->attributes['service_name'] = strtolower($value);
     }
+
+    public function faqs()
+    {
+        return $this->hasMany('App\Models\ServiceFaqs', 'service_id', 'id');
+    }
 }

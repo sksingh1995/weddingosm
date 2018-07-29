@@ -20,9 +20,8 @@ class CreateServiceFaqsTable extends Migration
             $table->string('question');
             $table->text('question_options')->nullable()->comment('if question type is checkbox,radio,select. then show these options to choose');
             $table->enum('question_type', [
-                'select', 'radio', 'checkbox', 'text'
-            ])->default('text')->comment('type of answer');
-            $table->text('answer')->nullable();
+                'select', 'radio', 'checkbox', 'text', 'number'
+            ])->default('text')->comment('what will be the answer type of the question');
         });
     }
 
