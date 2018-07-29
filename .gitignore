@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /public/js/app.js
+/public/js/dashboard_main.js
 /public/storage
 /storage/*.key
 /vendor
