@@ -34,31 +34,31 @@ class AuthController extends Controller
     {
         try {
 
-            $validator = Validator::make($req->all(),[
-                'email'  =>  'required|email',
-                'password'  =>  'required',
+            $validator = Validator::make($req->all(), [
+                'email' => 'required|email',
+                'password' => 'required',
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return response()->json([
-                    'status'    =>  false,
-                    'error'     =>  $validator->errors()->all()[0]
+                    'status' => false,
+                    'error' => $validator->errors()->all()[0]
                 ]);
             }
 
             $user = User::whereEmail($req->email)->first();
 
-            if(!$user || !Hash::check($req->password,$user->password)){
-                return response()->json(['status'   =>  false,'error'  => 'Invalid Credential'],200);   
+            if (!$user || !Hash::check($req->password, $user->password)) {
+                return response()->json(['status' => false, 'error' => 'Invalid Credential'], 200);
             }
 
-            if($user->active == 0){
-                return response()->json(['status'   =>  false,'error'  => 'Please verify your account by visiting your email to login'],200);   
+            if ($user->active == 0) {
+                return response()->json(['status' => false, 'error' => 'Please verify your account by visiting your email to login'], 200);
             }
 
-            return response()->json(['status'   =>  true,'message'  => 'login successfull'],200);
+            return response()->json(['status' => true, 'message' => 'login successfull'], 200);
         } catch (\Exception $e) {
-            return response()->json(['status'   =>  false,'error'  =>  $e->getMessage()],200);
+            return response()->json(['status' => false, 'error' => $e->getMessage()], 200);
         }
     }
 
@@ -69,11 +69,11 @@ class AuthController extends Controller
      */
     public function customerRegister()
     {
-        $cities = City::orderBy('city_name','ASC')->get(['id','city_name as name'])->toArray();
+        $cities = City::orderBy('city_name', 'ASC')->get(['id', 'city_name as name'])->toArray();
 
-        $countries = Country::orderBy('country_name','ASC')->get(['id','country_name as name'])->toArray();
+        $countries = Country::orderBy('country_name', 'ASC')->get(['id', 'country_name as name'])->toArray();
 
-        return view('auth.customer.register',compact('cities','countries'));
+        return view('auth.customer.register', compact('cities', 'countries'));
     }
 
 
@@ -85,23 +85,23 @@ class AuthController extends Controller
     public function postCustomerRegister(Request $req)
     {
         try {
-            $validator = Validator::make($req->all(),[
-                'name'  =>  'required',
-                'email'  =>  'required|email|unique:users',
-                'country'  =>  'required|exists:countries,id',
-                'city'  =>  'required|exists:cities,id',
-                'phone'  =>  'required|numeric',
-                'password'  =>  'required|min:8',
-            ],[
-                'email.unique'  =>  'email address is already taken',
-                'country.exists'  =>  'please choose a valid country',
-                'city.exists'  =>  'please choose a valid city',
+            $validator = Validator::make($req->all(), [
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'country' => 'required|exists:countries,id',
+                'city' => 'required|exists:cities,id',
+                'phone' => 'required|numeric',
+                'password' => 'required|min:8',
+            ], [
+                'email.unique' => 'email address is already taken',
+                'country.exists' => 'please choose a valid country',
+                'city.exists' => 'please choose a valid city',
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return response()->json([
-                    'status'    =>  false,
-                    'error'     =>  $validator->errors()->all()[0]
+                    'status' => false,
+                    'error' => $validator->errors()->all()[0]
                 ]);
             }
 
@@ -113,43 +113,43 @@ class AuthController extends Controller
             $user->phone = $req->phone;
             $user->password = bcrypt($req->password);
             $user->avatar = config('params.avatar_placeholder');
-            $user->token = md5($req->email.time());
+            $user->token = md5($req->email . time());
 
             // send email for verfication
-            Mail::to($req->email)->send(new SignUpVerficationMail($user,route('customer.email_verification',$user->token)));
+            Mail::to($req->email)->send(new SignUpVerficationMail($user, route('customer.email_verification', $user->token)));
 
             $user->save();
 
             $user->customerProfile()->create([
-                'gender'    =>  $req->gender,
-                'country_id'    =>  $req->country,
-                'city_id'    =>  $req->city,
+                'gender' => $req->gender,
+                'country_id' => $req->country,
+                'city_id' => $req->city,
             ]);
 
-            return response()->json(['status'   =>  true,'message'  =>  'Account Created. Please check your email to verify your account.'],201);
+            return response()->json(['status' => true, 'message' => 'Account Created. Please check your email to verify your account.'], 201);
         } catch (\Exception $e) {
-            return response()->json(['status'   =>  false,'error'  =>  $e->getMessage()],200);
+            return response()->json(['status' => false, 'error' => $e->getMessage()], 200);
         }
     }
 
-       /**
+    /**
      * verifies newly register vendor when he clicks the link received 
      * on email
      * @param  string $token token to verify users email
      * @return void
      */
-       public function customerEmailVerification($token)
-       {
-        if(!$token){
+    public function customerEmailVerification($token)
+    {
+        if (!$token) {
             return abort(404);
         }
 
         $user = User::where([
-            'token' =>    $token,
-            'user_type' =>  env('CUSTOMER_USER_TYPE'),
-        ])->first(['id','name','email','phone','token']);
+            'token' => $token,
+            'user_type' => env('CUSTOMER_USER_TYPE'),
+        ])->first(['id', 'name', 'email', 'phone', 'token']);
 
-        if(!$user){
+        if (!$user) {
             return abort(404);
         }
 
@@ -166,12 +166,12 @@ class AuthController extends Controller
      */
     public function vendorRegister()
     {
-        $services = Service::orderBy('service_name','ASC')->get(['id','service_name as name'])->toArray();
-        $cities = City::orderBy('city_name','ASC')->get(['id','city_name as name'])->toArray();
+        $services = Service::orderBy('service_name', 'ASC')->get(['id', 'service_name as name'])->toArray();
+        $cities = City::orderBy('city_name', 'ASC')->get(['id', 'city_name as name'])->toArray();
 
-        $countries = Country::orderBy('country_name','ASC')->get(['id','country_name as name'])->toArray();
+        $countries = Country::orderBy('country_name', 'ASC')->get(['id', 'country_name as name'])->toArray();
 
-        return view('auth.vendor.register',compact('services','cities','countries'));
+        return view('auth.vendor.register', compact('services', 'cities', 'countries'));
     }
 
     /**
@@ -182,27 +182,27 @@ class AuthController extends Controller
     public function vendorPostRegister(Request $req)
     {
         try {
-            $validator = Validator::make($req->all(),[
-                'bn'  =>  'required',
-                'name'  =>  'required',
-                'email'  =>  'required|email|unique:users',
-                'country'  =>  'required|exists:countries,id',
-                'city'  =>  'required|exists:cities,id',
-                'service'  =>  'required|exists:services,id',
-                'phone'  =>  'required|numeric',
-                'password'  =>  'required|min:8',
-            ],[
-                'bn.required'  =>  'business name is required',
-                'email.unique'  =>  'email address is already taken',
-                'country.exists'  =>  'please choose a valid country',
-                'city.exists'  =>  'please choose a valid city',
-                'service.exists'  =>  'please choose a valid service',
+            $validator = Validator::make($req->all(), [
+                'bn' => 'required',
+                'name' => 'required',
+                'email' => 'required|email|unique:users',
+                'country' => 'required|exists:countries,id',
+                'city' => 'required|exists:cities,id',
+                'service' => 'required|exists:services,id',
+                'phone' => 'required|numeric',
+                'password' => 'required|min:8',
+            ], [
+                'bn.required' => 'business name is required',
+                'email.unique' => 'email address is already taken',
+                'country.exists' => 'please choose a valid country',
+                'city.exists' => 'please choose a valid city',
+                'service.exists' => 'please choose a valid service',
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return response()->json([
-                    'status'    =>  false,
-                    'error'     =>  $validator->errors()->all()[0]
+                    'status' => false,
+                    'error' => $validator->errors()->all()[0]
                 ]);
             }
 
@@ -213,28 +213,29 @@ class AuthController extends Controller
             $user->email = $req->email;
             $user->phone = $req->phone;
             $user->password = bcrypt($req->password);
-            $user->token = md5($req->email.time());
+            $user->token = md5($req->email . time());
             $user->avatar = config('params.avatar_placeholder');
-            $user->referral_code = env('APP_NAME').'_'.mt_rand(11111,99999999);
+            $user->referral_code = env('APP_NAME') . '_' . mt_rand(11111, 99999999);
             $user->user_type = env('VENDOR_USER_TYPE');
 
             // send email for verfication
-            
-            Mail::to($req->email)->send(new SignUpVerficationMail($user,route('vendor.email_verification',$user->token)));
+
+            Mail::to($req->email)->send(new SignUpVerficationMail($user, route('vendor.email_verification', $user->token)));
 
             $user->save();
 
             //save vendor profile
             $user->vendorProfile()->create([
-                'business_name' =>  $req->bn,
-                'about_business' =>  $req->bd,
-                'country_id' =>  $req->country,
-                'city_id' =>  $req->city,
+                'business_name' => $req->bn,
+                'about_business' => $req->bd,
+                'country_id' => $req->country,
+                'service_id' => $req->service,
+                'city_id' => $req->city,
             ]);
 
-            return response()->json(['status'   =>  true,'message'  =>  'vendor registered'],201);
+            return response()->json(['status' => true, 'message' => 'vendor registered'], 201);
         } catch (\Exception $e) {
-            return response()->json(['status'   =>  false,'error'  =>  $e->getMessage()],200);
+            return response()->json(['status' => false, 'error' => $e->getMessage()], 200);
         }
     }
 
@@ -246,25 +247,54 @@ class AuthController extends Controller
      */
     public function vendorEmailVerification($token)
     {
-        if(!$token){
+        if (!$token) {
             return abort(404);
         }
 
-        $user = User::whereToken($token)->where('user_type',env('VENDOR_USER_TYPE'))->first(['id','name','email','phone','token']);
+        $user = User::whereToken($token)->where('user_type', env('VENDOR_USER_TYPE'))->first(['id', 'name', 'email', 'phone', 'token']);
 
-        if(!$user || $user->active == 1){
+        if (!$user || $user->active == 1) {
             return abort(404);
         }
 
-        if($user->vendorProfile->registration_completed_step > 1){
+        if ($user->vendorProfile->registration_completed_step > 1) {
             return abort(404);
         }
 
         $user->active = 1;
-        
-        $user->save();
 
-        return view('auth.vendor.faq',compact('user'));
+        $user->save();
+        // $user->vendorProfile->service->faqs
+        return view('auth.vendor.faq', compact('user'));
+    }
+
+    /**
+     * saves the vendor faqs posted on second step during sign up
+     * @param Request $req
+     * @return Json
+     */
+    public function vendorPostFaq(Request $req)
+    {
+        try {
+
+            $vendor = User::where('token', $req->user_token)->first();
+
+            if (!$vendor) {
+                return response()->json(['status' => false, 'error' => 'Invalid user'], 200);
+            }
+
+            $data = json_encode($req->except('user_token'));
+
+            $vendor->vendorProfile()->update([
+                'faq_answers' => $data,
+                'registration_completed_step' => 2
+            ]);
+
+            return response()->json(['status' => true, 'message' => 'faq saved'], 200);
+
+        } catch (\Exception $e) {
+            return response()->json(['status' => false, 'error' => $e->getMessage()], 200);
+        }
     }
 
 
@@ -273,19 +303,32 @@ class AuthController extends Controller
      * @param  string $token token to verify user
      * @return view
      */
-    public function vendorPhotoGallery($token)
+    public function vendorPhotoGallery($token, Request $req)
     {
-        if(!$token){
+
+        if (!$token) {
             return abort(404);
         }
 
-        $user = User::whereToken($token)->where('user_type',env('VENDOR_USER_TYPE'))->first(['id','token']);
+        $user = User::whereToken($token)
+            ->where('user_type', env('VENDOR_USER_TYPE'))
+            ->first(['id', 'token']);
 
-        if(!$user || $user->vendorProfile->faq_completed == 1){
+        if ($req->query('no-faq') == 1) {
+            if ($user) {
+                $user->vendorProfile()->update([
+                    'registration_completed_step' => 2
+                ]);
+            }
+
+            return redirect()->route('vendor.register.photo-gallery', $token);
+        }
+
+        if (!$user || $user->vendorProfile->registration_completed_step != 2) {
             return abort(404);
         }
 
-        return view('auth.vendor.photo_gallery',compact('user'));
+        return view('auth.vendor.photo_gallery', compact('user'));
     }
 
     /**
@@ -300,57 +343,56 @@ class AuthController extends Controller
 
             $rules = array(
                 'files' => 'required|array',
-                'user'  =>  'required'
+                'user' => 'required'
             );
 
             $validator = Validator::make($req->all(), $rules);
 
-            if ($validator->fails())
-            {
+            if ($validator->fails()) {
                 return response()->json([
-                    'status'   =>  false, 
-                    'error'  =>  $validator->errors()->all()[0]    
+                    'status' => false,
+                    'error' => $validator->errors()->all()[0]
                 ], 200);
             }
 
             $user = User::find($req->user);
 
-            if(!$user){
-                return response()->json(['status'   =>  false],200);
-            }   
+            if (!$user) {
+                return response()->json(['status' => false], 200);
+            }
 
             $files = $req->file('files');
 
-            if($files){
+            if ($files) {
 
                 $path = 'uploads/vendor/';
 
-                if(!file_exists(public_path($path))){
-                    mkdir(public_path($path,0777));
+                if (!file_exists(public_path($path))) {
+                    mkdir(public_path($path, 0777));
                 }
 
                 $uploaded_files = '';
 
                 foreach ($files as $key => $file) {
-                    $filename = time().'_'.$file->getClientOriginalName();
-                    $file->move($path,$filename);
+                    $filename = time() . '_' . $file->getClientOriginalName();
+                    $file->move($path, $filename);
 
-                    $uploaded_files .= ','.$path.$filename;
+                    $uploaded_files .= ',' . $path . $filename;
                 }
 
                 $user->vendorProfile()->update([
-                    'photos'    =>  trim($uploaded_files,',')
+                    'photos' => trim($uploaded_files, ',')
                 ]);
 
-                return response()->json(['status'   =>  true],201);
+                return response()->json(['status' => true], 201);
             }
 
-            return response()->json(['error'   =>  'something went wrong'],200);
+            return response()->json(['error' => 'something went wrong'], 200);
         } catch (\Exception $e) {
-         return response()->json(['error'   =>  $e->getMessage()],200);
-     }
+            return response()->json(['error' => $e->getMessage()], 200);
+        }
 
- }
+    }
 
     /**
      * called when vendor user completed photo upload step after fresh
@@ -364,14 +406,14 @@ class AuthController extends Controller
         try {
             $token = $req->query('token');
 
-            if(!$token){
-                return response()->json(['status'   =>  false],200);
+            if (!$token) {
+                return response()->json(['status' => false], 200);
             }
 
             $user = User::whereToken($token)->first();
-            
-            if(!$user){
-                return response()->json(['status'   =>  false],200);
+
+            if (!$user) {
+                return response()->json(['status' => false], 200);
             }
 
 
@@ -379,14 +421,14 @@ class AuthController extends Controller
             $user->save();
 
             $user->vendorProfile()->update([
-                'faq_completed'   =>  1
+                'registration_completed_step' => 3
             ]);
 
-            return response()->json(['status'   =>  true],200);            
+            return response()->json(['status' => true], 200);
         } catch (\Exception $e) {
-            return response()->json(['status'   =>  true],200);
+            return response()->json(['status' => true], 200);
         }
-    }    
+    }
 
 
     /**
@@ -399,23 +441,23 @@ class AuthController extends Controller
     {
         try {
 
-            if(!$req->email){
-                return response()->json(['status'   =>  false,'error' =>  'Please enter your email address registered with us'],200);
+            if (!$req->email) {
+                return response()->json(['status' => false, 'error' => 'Please enter your email address registered with us'], 200);
             }
 
             $user = User::where([
-                'email' =>  $req->email,
-                'active' =>  1,
-                'verified_by_admin' =>  1,
+                'email' => $req->email,
+                'active' => 1,
+                'verified_by_admin' => 1,
             ])->first();
-            
-            if($user){
+
+            if ($user) {
 
                 // create the token
-                $token = md5($req->email.time());
+                $token = md5($req->email . time());
 
                 // send password reset link to the email
-                Mail::to($req->email)->send(new ForgotPasswordMail($user,route('password.reset',$token)));
+                Mail::to($req->email)->send(new ForgotPasswordMail($user, route('password.reset', $token)));
 
                 // save the token
                 $user->token = $token;
@@ -423,9 +465,9 @@ class AuthController extends Controller
 
             }
 
-            return response()->json(['status'   =>  true,'message'  =>  'You will shortly get an email if you are registered in the system'],200);            
+            return response()->json(['status' => true, 'message' => 'You will shortly get an email if you are registered in the system'], 200);
         } catch (\Exception $e) {
-            return response()->json(['status'   =>  false,'error'   =>  $e->getMessage()],200);
+            return response()->json(['status' => false, 'error' => $e->getMessage()], 200);
         }
     }
 
@@ -439,18 +481,18 @@ class AuthController extends Controller
     public function resetPassword($token)
     {
         try {
-            if(!$token){
+            if (!$token) {
                 return abort(404);
             }
 
             $user = User::whereToken($token)->first();
 
-            if(!$user){
+            if (!$user) {
                 return abort(404);
             }
 
-            return view('auth.password_reset',compact('token'));
-            
+            return view('auth.password_reset', compact('token'));
+
         } catch (\Exception $e) {
             // dd($e->getMessage());
             abort(404);
@@ -464,30 +506,30 @@ class AuthController extends Controller
      */
     public function postResetPassword(Request $req)
     {
-        try {   
+        try {
 
-            $validator = Validator::make($req->all(),[
-                'password'  =>  'required|min:8',
-                'cnf_password'  =>  'required|same:password',
-            ],[
-                'cnf_password.required' =>  'confirm password field cannot left blank',
-                'cnf_password.same' =>  'confirm password field must be same as password',
+            $validator = Validator::make($req->all(), [
+                'password' => 'required|min:8',
+                'cnf_password' => 'required|same:password',
+            ], [
+                'cnf_password.required' => 'confirm password field cannot left blank',
+                'cnf_password.same' => 'confirm password field must be same as password',
             ]);
 
-            if($validator->fails()){
+            if ($validator->fails()) {
                 return response()->json([
-                    'status'   =>  false,
-                    'error'   =>  $validator->errors()->all()[0]
+                    'status' => false,
+                    'error' => $validator->errors()->all()[0]
                 ]);
             }
 
 
             $user = User::whereToken($req->token)->first();
 
-            if(!$user){
+            if (!$user) {
                 return response()->json([
-                    'status'   =>  false,
-                    'error'   =>  'something went wrong. please try again'
+                    'status' => false,
+                    'error' => 'something went wrong. please try again'
                 ]);
             }
 
@@ -496,15 +538,15 @@ class AuthController extends Controller
             $user->save();
 
             return response()->json([
-                'status'   =>  true,
-                'message'   =>  'password reset successfull'
+                'status' => true,
+                'message' => 'password reset successfull'
             ]);
-            
+
         } catch (\Exception $e) {
-         return response()->json([
-            'status'   =>  false,
-            'error'   =>  $e->getMessage()
-        ]);
-     }
- }
+            return response()->json([
+                'status' => false,
+                'error' => $e->getMessage()
+            ]);
+        }
+    }
 }
