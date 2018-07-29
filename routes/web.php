@@ -48,4 +48,4 @@ Route::get('wishlist', 'WishListController@index')->name('wishlist');
 Route::get('about-us', 'StaticPagesController@aboutUs')->name('about');
 Route::get('gallery', 'StaticPagesController@gallery')->name('gallery');
 Route::get('contact-us', 'StaticPagesController@contactUs')->name('contact');
-Route::get('gallery', 'StaticPagesController@gallery')->name('gallery');
+Route::get('shopping', 'StaticPagesController@shopping')->name('shopping');
