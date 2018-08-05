@@ -96,8 +96,39 @@
 .shop_product figure{ height: 250px; }
 .shop_product .wrapper h3{ font-size: 15px; }
 
+.view-all-btn{
+    position: relative;
+    top: -15px;
+    display: block;
+    background: #fc2b5c;
+    color: #fff;
+    width: 100px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 4px 0; 
+    cursor: pointer;
+    z-index: 99;
+}
+
+.view-all-btn:hover{background:#ec194a; color: #fff;  }
+
+
+.div-left{ float: left; }
+.div-right{ float: right; }
+
+
+
 @media only screen and (max-width: 480px){
 
+.div-left{ float: none; }
+.div-right{ float: none; }
+
+
+.view-all-btn{margin:auto; margin-bottom: 20px; }
+.h2-colect-title{ text-align: center; }
+.h2-colect-desc{ text-align: center; }
+
+.hero_in .wrapper p{font-size: 17px;}
     .collection-item img {
     margin: 0 auto;
 }

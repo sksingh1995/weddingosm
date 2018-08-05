@@ -7,92 +7,18 @@
 @endsection
 @section('main')
 
-<section class="hero_in general" style="background: url(img/wedding-shopping-banner.jpg); background-position: center;" >
+<section style="min-height: 100px;" class="hero_in general" style="background: url(img/wedding-shopping-banner.jpg); background-position: center;" >
       <div class="wrapper">
-            <div class="container">
-                  <h1 class="fadeInUp"><span></span>Wedding  Shopping Cart</h1>
-                  <p>We help you plan the best for your dreams, Opportunities don't happen. You create them!</p>
-            </div>
+           
       </div>
 </section>
 <!--/hero_in-->
 
  
-            <div class="collection-content bg_color_1 margin_80_55">
-                        <div class="container ">
-                           <div class="row">
-                               <div class="col-xs-12 col-md-7 c-left colect-inner">
-                                   <h3 class="h2-colect-title v2">Groom</h3>
-                                   <p class="h2-colect-desc v2">New collection 2018  </p>
-                                   	<a href="" class="view-all-btn div-right">View All</a>
-
-                                   <div class="collection-item">
-                                       
-                                       <a href="#" class="hover-images"><img src="img/groom_1.jpg" alt="" class="img-responsive">
-
-                                       </a>
-
-                                       <div class="product-info v2">
-                                           <h3 class="product-title"><a href="#">Becca Lace Strappy  Underwire Bra</a></h3>
-                                       </div>
-                                   </div>
-                                   <div class="collection-item align-right align-left">
-                                       <a href="#" class="hover-images"><img src="img/groom_2.jpg" alt="" class="img-responsive"></a>
-                                       <div class="product-info v2 absolute-title">
-                                           <h3 class="product-title"><a href="#">Olivia The Wolf Lace  Hair Comb</a></h3>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-xs-12 col-md-5 h2-colect-ovl">
-                                   <a href="#" class="hover-images"><img src="img/groom_3.jpg" alt="collection-img" class="img-responsive"></a>
-                               </div>
-                           </div> 
-                        </div>
-                    </div>
- 
-
-
-
-<div class="collection-content v2 bg_color_1 margin_80_55">
-                        <div class="container">
-                           <div class="row">
-                               <div class="col-xs-12 col-md-7 colect-inner c-left">
-                                   <h3 class="h2-colect-title">Bride</h3>
-                                   <p class="h2-colect-desc">New collection 2018</p>
-                                   	<a href="" class="view-all-btn div-left">View All</a>
-                                   <div class="collection-item align-right">
-                                       <a href="#" class="hover-images"><img src="img/bride_3.jpg" alt="" class="img-responsive"></a>
-                                       <div class="product-info v2">
-                                           <h3 class="product-title"><a href="#">Becca Lace Strappy  Underwire Bra</a></h3>
-                                       </div>
-                                   </div>
-                                   <div class="clearfix"></div>
-                                   <div class="collection-item align-left">
-                                       <a href="#" class="hover-images"><img src="img/bride_2.jpg" alt="" class="img-responsive"></a>
-                                       <div class="product-info v2 absolute-title">
-                                           <h3 class="product-title"><a href="#">Olivia The Wolf Lace  Hair Comb</a></h3>
-                                       </div>
-                                   </div>
-                               </div>
-                               <div class="col-xs-12 col-md-5 h2-colect-ovl v2">
-                                   <a href="#" class="hover-images"><img src="img/bride_1.jpg" alt="collection-img" class="img-responsive"></a>
-                               </div>
-                           </div> 
-                        </div>
-                    </div>
-
-
-
-
- 
+             
 <div class="bg_color_1" style="margin-top: -40px;">
 <div class="container margin_80_55">
-
-	    <div class="main_title_2">
-            <span><em></em></span>
-            <h2>Features Products</h2>
-            <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
-      </div>
+ 
 
       <div class="isotope-wrapper">
 			<div class="row">

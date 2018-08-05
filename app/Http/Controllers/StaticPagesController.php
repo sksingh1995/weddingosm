@@ -39,4 +39,10 @@ class StaticPagesController extends Controller
     {
         return view('static.shopping');
     }
+
+
+    public function shoppinglist()
+    {
+        return view('static.shopping-list');
+    }
 }
