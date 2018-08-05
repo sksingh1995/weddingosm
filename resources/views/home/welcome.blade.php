@@ -1,11 +1,12 @@
 @extends('layouts.master') 
 @section('main')
+
 <section class="hero_single version_2">
     <div class="wrapper">
         <div class="container banner-box">
             <h3>Your Wedding, Your Way</h3>
             <p>Expolore top rated vendors, ideas and more</p>
-    @include('includes.vendor-search-form')
+            @include('includes.vendor-search-form')
         </div>
 
         <a href="{{route('vendor.register')}}" style="color:#fff;">
@@ -16,7 +17,6 @@
     </div>
 </section>
 <!-- /hero_single -->
-
 
 <div class="container-fluid margin_80_0">
     <div class="main_title_2">
@@ -30,8 +30,8 @@
                 <figure>
 
                     <a href="vendor-listing.html"><img src="/img/vendors/venues.jpg" class="img-fluid" alt="" width="800" height="533">
-                <div class="read_more"><span>Read more</span></div>
-            </a>
+                        <div class="read_more"><span>Read more</span></div>
+                    </a>
 
                 </figure>
                 <div class="wrapper">
@@ -47,8 +47,8 @@
                 <figure>
 
                     <a href="vendor-listing.html"><img src="/img/vendors/wedding-photographer.jpg" class="img-fluid" alt="" width="800" height="533">
-                <div class="read_more"><span>Read more</span></div>
-            </a>
+                        <div class="read_more"><span>Read more</span></div>
+                    </a>
 
                 </figure>
                 <div class="wrapper">
@@ -63,8 +63,8 @@
                 <figure>
 
                     <a href="vendor-listing.html"><img src="/img/vendors/bridal-makeup.jpg" class="img-fluid" alt="" width="800" height="533">
-                <div class="read_more"><span>Read more</span></div>
-            </a>
+                        <div class="read_more"><span>Read more</span></div>
+                    </a>
 
                 </figure>
                 <div class="wrapper">
@@ -78,8 +78,8 @@
                 <figure>
 
                     <a href="vendor-listing.html"><img src="/img/vendors/wedding-decorator.jpg" class="img-fluid" alt="" width="800" height="533">
-                <div class="read_more"><span>Read more</span></div>
-            </a>
+                        <div class="read_more"><span>Read more</span></div>
+                    </a>
 
                 </figure>
                 <div class="wrapper">
@@ -93,8 +93,8 @@
                 <figure>
 
                     <a href="vendor-listing.html"><img src="/img/vendors/bride-wear.jpg" class="img-fluid" alt="" width="800" height="533">
-                <div class="read_more"><span>Read more</span></div>
-            </a>
+                        <div class="read_more"><span>Read more</span></div>
+                    </a>
 
                 </figure>
                 <div class="wrapper">
@@ -108,8 +108,8 @@
                 <figure>
 
                     <a href="vendor-listing.html"><img src="/img/vendors/wedding-card-design.jpg" class="img-fluid" alt="" width="800" height="533">
-                <div class="read_more"><span>Read more</span></div>
-            </a>
+                        <div class="read_more"><span>Read more</span></div>
+                    </a>
 
                 </figure>
                 <div class="wrapper">
@@ -346,7 +346,7 @@
                 <div class="box_1">
                     <h3>Enjoy a GREAT Wedding with us</h3>
                     <p>Ius cu tamquam persequeris, eu veniam apeirian platonem qui, id aliquip voluptatibus pri. Ei mea primis
-                        ornatus disputationi. Menandri erroribus cu per, duo solet congue ut. </p>
+                    ornatus disputationi. Menandri erroribus cu per, duo solet congue ut. </p>
                     <a href="#0" class="btn_1 rounded">Read more</a>
                 </div>
             </div>

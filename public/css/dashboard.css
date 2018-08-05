@@ -42,7 +42,7 @@ input { }
 button { }
 input.form-control { display: block; width: 100%; padding: 14px 16px; font-size: 14px; line-height: 1.42857143; color: #252328; background-color: #fff; background-image: none; border: 1px solid #cdcdcd; border-radius: 2px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); box-shadow: 0 2px 1px rgba(0, 0, 0, .075); -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s; -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 input.form-control-sm { padding: 6px 10px; font-size: 13px; }
-select.form-control { color: #343031; -webkit-appearance: none; -moz-appearance: none; background-position: 94% 50%; background-repeat: no-repeat; background-image: url(../images/down-arrow.png); padding-right: 15px; border: 1px solid #cdcdcd; border-radius: 2px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); box-shadow: 0 2px 1px rgba(0, 0, 0, .075); height: 50px; padding: 6px 16px; }
+select.form-control { color: #343031; -webkit-appearance: none; -moz-appearance: none; background-position: 94% 50%; background-repeat: no-repeat; background-image: url(/images/down-arrow.png); padding-right: 15px; border: 1px solid #cdcdcd; border-radius: 2px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); box-shadow: 0 2px 1px rgba(0, 0, 0, .075); height: 50px; padding: 6px 16px; }
 textarea.form-control { height: auto; color: #343031; background-color: #fff; background-image: none; border: 1px solid #cdcdcd; border-radius: 2px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); box-shadow: 0 2px 1px rgba(0, 0, 0, .075); padding: 12px 16px; }
 input::-webkit-input-placeholder { color: #6e6a6b !important; }
 input:focus::-webkit-input-placeholder { color: #252328 !important; }
@@ -343,8 +343,8 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .star { position: relative; }
 .star li { padding-left: 22px; line-height: 30px; font-size: 14px; }
 .star li:before { font-family: 'Font Awesome\ 5 Free'; font-weight: 900; display: inline-block; position: absolute; left: 0; font-size: 14px; color: #bbb9be; content: '\f381'; }
-.vendor-bg-image { background: url(../images/signup-bg-img.jpg)no-repeat; background-size: cover; height: 100%; }
-.couple-bg-image { background: url(../images/couple-bg-img.jpg)no-repeat; background-size: cover; height: 100%; }
+.vendor-bg-image { background: url(/images/signup-bg-img.jpg)no-repeat; background-size: cover; height: 100%; }
+.couple-bg-image { background: url(/images/couple-bg-img.jpg)no-repeat; background-size: cover; height: 100%; }
 
 /*--- 4.7 Call to actions ---*/
 
@@ -406,7 +406,7 @@ img.grayscale:hover { filter: grayscale(0); opacity: 1; transition-property: fil
 .header { background-color: #fff; padding-top: 12px; padding-bottom: 12px; position: relative; z-index: 9; border-bottom: 1px solid #f1f1f1; }
 .header-logo { padding-top: 10px; }
 .header-btn { padding-top: 6px; }
-.hero-section { background: url(../images/hero-image.jpg) no-repeat center; background-size: cover; padding-bottom: 160px; padding-top: 160px; }
+.hero-section { background: url(/images/hero-image.jpg) no-repeat center; background-size: cover; padding-bottom: 160px; padding-top: 160px; }
 
 
 
@@ -414,7 +414,7 @@ img.grayscale:hover { filter: grayscale(0); opacity: 1; transition-property: fil
 .navigation-second { border-top: 1px solid #ebebeb; margin-top: 15px; }
 .header-second { padding-bottom: 0px; }
 .navigation-second #navigation ul ul li { top: 1px; }
-.hero-section-second { background: url(../images/hero-image-2.jpg) no-repeat center; background-size: cover; min-height: 595px; }
+.hero-section-second { background: url(/images/hero-image-2.jpg) no-repeat center; background-size: cover; min-height: 595px; }
 .hero-section-second .search-head-title { font-size: 48px; line-height: 50px; }
 .hero-section-second .search-form { background-color: rgba(0, 0, 0, 0.4); padding: 30px; border-radius: 4px; }
 .hero-section-caption { padding-bottom: 150px; padding-top: 160px; }
@@ -424,7 +424,7 @@ img.grayscale:hover { filter: grayscale(0); opacity: 1; transition-property: fil
 .vendor-feature-block .feature-title { font-size: 16px; margin-bottom: 0px; }
 .vendor-feature-block.feature-block:hover { box-shadow: 0 0 8px 0 rgba(0, 0, 0, .08); }
 .vendor-feature-block.feature-block:hover .feature-icon a { color: #ff4d4d; }
-.cta-wrapper { background: url(../images/cta-img.jpg)no-repeat; background-size: cover; }
+.cta-wrapper { background: url(/images/cta-img.jpg)no-repeat; background-size: cover; }
 .cta-section { padding-top: 150px; padding-bottom: 150px; color: #fff; }
 .list-single-second-pageheader { border-bottom: 1px solid #ebebeb; margin-bottom: 40px; }
 .list-single-second { padding-top: 30px; }
@@ -515,7 +515,7 @@ box-shadow: 0 0 4px 2px rgba(0, 0, 0, .05); }
 
 /*---9.4 Venue Single page ---*/
 .vendor-head-image { position: relative; }
-.vendor-head-image { background-color: #0db2f0; padding: 0px 0px; margin: 0px; border-bottom: transparent; background: url(../images/venue-single.jpg) no-repeat center; min-height: 552px; position: relative; background-size: cover; }
+.vendor-head-image { background-color: #0db2f0; padding: 0px 0px; margin: 0px; border-bottom: transparent; background: url(/images/venue-single.jpg) no-repeat center; min-height: 552px; position: relative; background-size: cover; }
 .vendor-content-wrapper { margin-top: 40px; }
 .vendor-details { margin-bottom: 20px; }
 .vendor-headings { padding-top: 25px; padding-bottom: 25px; position: relative; }
@@ -595,7 +595,7 @@ box-shadow: 0 0 4px 2px rgba(0, 0, 0, .05); }
 .real-wedding-meta { line-height: 14px; }
 
 /*--- 9.8 real wedding single --- */
-.real-wedding-single-img { background: url(../images/real-weddings-single.jpg); background-size: cover; padding-top: 400px; }
+.real-wedding-single-img { background: url(/images/real-weddings-single.jpg); background-size: cover; padding-top: 400px; }
 .real-wedding-img img { width: 100%; position: relative; }
 .real-wedding-place { font-size: 14px; font-weight: 400; line-height: 14px; }
 .real-wedding-header { background: #fbfbfb; padding-top: 30px; }
