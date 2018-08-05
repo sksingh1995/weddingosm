@@ -27,42 +27,41 @@
     {{--
         <link href="{{asset('ss/daterangepicker.css')}}" rel="stylesheet"> --}}
 
-    <!-- YOUR CUSTOM CSS -->
-    <link href="{{asset('css/custom.css')}}" rel="stylesheet"> @yield('styles')
+        <!-- YOUR CUSTOM CSS -->
+        <link href="{{asset('css/custom.css')}}" rel="stylesheet"> @yield('styles')
 
-    <script>
-        var base_url = "{{URL::to('')}}/";
-    </script>
-</head>
+        <script>
+            var base_url = "{{URL::to('')}}/";
+        </script>
+    </head>
 
-<body>
-    <div class="preloader" id="global-loader">
-        <div data-loader="loader"></div>
-    </div>
-    <div id="app">
-        <loader></loader>
-    @include('layouts.header')
-        <main>
-            @yield('main')
-        </main>
-    @include('layouts.footer')
-    
-    <!-- Login Popup -->
-    @include('popups.login')
-    </div>
+    <body>
+        <div class="preloader" id="global-loader">
+            <div data-loader="loader"></div>
+        </div>
+        <div id="app">
+            <loader></loader>
+            @include('layouts.header')
+            <main>
+                @yield('main')
+            </main>
+            @include('layouts.footer')
 
-    <div id="toTop"></div>
-    <!-- Back to top button -->
+            <!-- Login Popup -->
+            @include('popups.login')
+        </div>
 
-    <script src="{{asset('js/app.js')}}"></script>
-    <script>
-        $(document).ready(function(){    
-            $("#global-loader").fadeOut(1500);
-        });
-    </script>
-    <script src="{{asset('js/common_scripts.js')}}"></script>
-    <script src="{{asset('js/main.js')}}"></script>
-    @yield('scripts')
-</body>
+        <div id="toTop"></div>
+        <!-- Back to top button -->
+        <script src="{{asset('js/app.js')}}"></script>
+        <script>
+            $(document).ready(function(){    
+                $("#global-loader").fadeOut(1500);
+            });
+        </script>
+        <script src="{{asset('js/common_scripts.js')}}"></script>
+        <script src="{{asset('js/main.js')}}"></script>
+        @yield('scripts')
+    </body>
 
-</html>
+    </html>
