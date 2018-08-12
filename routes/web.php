@@ -49,3 +49,4 @@ Route::get('gallery', 'StaticPagesController@gallery')->name('gallery');
 Route::get('contact-us', 'StaticPagesController@contactUs')->name('contact');
 Route::get('shopping', 'StaticPagesController@shopping')->name('shopping');
 Route::get('shopping-list', 'StaticPagesController@shoppinglist')->name('shoppinglist');
+Route::get('product-detail', 'StaticPagesController@productdetail')->name('productdetail');

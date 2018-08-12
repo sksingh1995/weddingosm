@@ -45,4 +45,11 @@ class StaticPagesController extends Controller
     {
         return view('static.shopping-list');
     }
+
+
+    public function productdetail()
+    {
+        return view('static.product-detail');
+    }
+
 }
