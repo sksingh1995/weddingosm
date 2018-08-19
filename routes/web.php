@@ -6,9 +6,9 @@ Route::get('gallery-upload-finish', 'AuthController@galleryUploadFinish');
 
 Route::post('check-email-exists', 'MixController@checkEmailExists')->name('vendor.all');
 
-Route::get('vendors', 'VendorController@vendors')->name('vendor.all');
+Route::get('vendors/{location?}/{service?}', 'VendorController@listVendors');
 
-Route::get('vendor', 'VendorController@vendorDetail')->name('vendor.detail');
+Route::get('vendor-detail/{service}/{business_name}', 'VendorController@vendorDetail')->name('vendor.detail');
 
 Route::get('vendor/register', 'AuthController@vendorRegister')->name('vendor.register');
 

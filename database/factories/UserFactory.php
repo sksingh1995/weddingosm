@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\City;
+use App\Models\User;
 use Faker\Generator as Faker;
 
 /*
@@ -13,11 +15,24 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
-    ];
+
+$factory->define(User::class, function (Faker $faker) {
+	return [
+		'name' => $faker->name,
+		'email' => $faker->unique()->safeEmail,
+		'phone' => 9015470425,
+		'password' => bcrypt(111111),
+		'avatar' => config('params.avatar_placeholder'),
+		'active' => 1,
+	];
+});
+
+$factory->afterCreating(User::class, function ($user, $faker) {
+	$user->email = strtolower(str_replace(' ', '_', $user->name).'@yopmail.com');
+	$user->save();
+
+	$user->customerProfile()->create([
+		'country_id' => 1,
+		'city_id' => mt_rand(1,City::count()),
+	]);
 });

@@ -13,16 +13,34 @@ use Illuminate\Support\Facades\Validator;
 
 class VendorController extends Controller
 {
-    
+
 
     /**
-     * show the view of vendors
+     * shows the list of vendors matches in search criteria
      * @return view
      */
-    public function vendors()
+    public function listVendors($location = 'all', $service = null)
     {
+        $query = User::query();
 
-        return view('vendor.vendors');
+        if($service != null){
+            $query->whereHas('vendorProfile', function($q) use($service){
+                $q->where('service_id',getServiceIdByKey($service));
+            });
+
+        }
+
+        if($location != 'all'){
+            $query->whereHas('vendorProfile', function($q) use($location){
+                $q->where('city_id',getCityIdByKey($location));
+            });
+        }
+
+        $vendors = $query->isVendor()->paginate(config('params.vendor_per_page'));
+
+        // dd($vendors->count());
+
+        return view('vendor.vendors',compact('vendors','location','service'));
     }
 
 
@@ -30,7 +48,7 @@ class VendorController extends Controller
      * show the view of vendor detail page
      * @return view
      */
-    public function vendorDetail()
+    public function vendorDetail($service, $id)
     {
         return view('vendor.vendor-detail');
     }

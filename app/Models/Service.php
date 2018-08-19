@@ -2,10 +2,26 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+
+     /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
+     protected static function boot()
+     {
+        parent::boot();
+
+        static::addGlobalScope('active', function (Builder $builder) {
+            $builder->where('active',1);
+        });
+    }
+
     /**
      * remove timestamps from model
      * @var boolean

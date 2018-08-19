@@ -20,4 +20,32 @@ class VendorProfile extends Model
 	{
 		return $this->belongsTo('App\Models\Service', 'service_id', 'id');
 	}
+
+	/**
+	 * return the service name in url format
+	 * @return string
+	 */
+	public function serviceUrl()
+	{
+		return str_replace(' ', '-', $this->service->service_name);
+	}
+
+	/**
+	 * return the business name in url format
+	 * @return string
+	 */
+	public function businessNameUrl()
+	{
+		return str_replace(' ', '-', $this->business_name).'-'.$this->id;
+	}
+
+	/**
+	 * inverse one to one relationship between vendor profile and city
+	 * @return collection
+	 */
+	public function city()
+	{
+		return $this->belongsTo('App\Models\City', 'city_id', 'id');
+	}
+	
 }

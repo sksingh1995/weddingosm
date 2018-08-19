@@ -12,10 +12,13 @@ class AdminTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('admins')->insert([
-            'name' => 'shobhit singh',
-            'email' => 'sksingh@yopmail.com',
-            'password' => md5(111111)
-        ]);
+        $admin = DB::table('admins')->first();
+        if(!$admin){
+            DB::table('admins')->insert([
+                'name' => 'shobhit singh',
+                'email' => 'sksingh@yopmail.com',
+                'password' => md5(111111)
+            ]);
+        }
     }
 }

@@ -9,7 +9,7 @@
 </section>
 <!--/hero_in-->
 
-<div class="filters_listing sticky_horizontal">
+<!-- <div class="filters_listing sticky_horizontal">
       <div class="container">
             <ul class="clearfix">
                   <li>
@@ -28,8 +28,9 @@
                   </li>
             </ul>
       </div>
-      <!-- /container -->
-</div>
+</div> -->
+
+
 <!-- /filters -->
 
 
@@ -37,338 +38,75 @@
 
 <div class="container ">
       <div class="col-lg-12">
-            <div class="row no-gutters custom-search-input-2 inner">
-                  <div class="col-lg-4">
-                        <div class="form-group">
-                              <input class="form-control" type="text" placeholder="What are you looking for...">
-                              <i class="icon_search"></i>
-                        </div>
-                  </div>
-                  <div class="col-lg-3">
-                        <div class="form-group">
-                              <input class="form-control" type="text" placeholder="Where">
-                              <i class="icon_pin_alt"></i>
-                        </div>
-                  </div>
-                  <div class="col-lg-3">
-                        <select class="wide">
-                              <option>All Categories</option>	
-                              <option>Restaurants</option>
-                              <option>Bars</option>
-                              <option>Coffee Bars</option>
-                        </select>
-                  </div>
-                  <div class="col-lg-2">
-                        <input type="submit" class="btn_search" value="Search">
-                  </div>
-            </div>
-            <!-- /row -->
+            @include('includes.vendor-search-form')
+            <br>
       </div>
       <!-- /custom-search-input-2 -->
 
-      <div class="col-sm-12">
+<!--       <div class="col-sm-12">
             <div class="more-filter">
-                  <!-- <h6>More Filter</h6>  -->
                   <ul>
                         <li>
                               <label>
-                                                      <input type="checkbox" class="icheck">Superb 9+ <small>(25)</small>
-                                                </label>
+                                    <input type="checkbox" class="icheck">Superb 9+ <small>(25)</small>
+                              </label>
                         </li>
                         <li>
                               <label>
-                                                      <input type="checkbox" class="icheck">Very Good 8+ <small>(26)</small>
-                                                </label>
+                                    <input type="checkbox" class="icheck">Very Good 8+ <small>(26)</small>
+                              </label>
                         </li>
                         <li>
                               <label>
-                                                      <input type="checkbox" class="icheck">Good 7+ <small>(25)</small>
-                                                </label>
+                                    <input type="checkbox" class="icheck">Good 7+ <small>(25)</small>
+                              </label>
                         </li>
                         <li>
                               <label>
-                                                      <input type="checkbox" class="icheck">Pleasant 6+ <small>(12)</small>
-                                                </label>
+                                    <input type="checkbox" class="icheck">Pleasant 6+ <small>(12)</small>
+                              </label>
                         </li>
                   </ul>
             </div>
-      </div>
+      </div> -->
 
+      @if(!$vendors->count())
+      <p class="alert alert-danger text-center">
+            <strong>No Vendors Found For Your Search!</strong>
+      </p>
+      @else
       <div class="isotope-wrapper">
             <div class="row">
+                  @foreach($vendors as $vendor)
                   <div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
                         <div class="box_grid">
                               <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="{{route('vendor.detail')}}"><img src="img/restaurant_1.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Paris Centre</small>
+                                    <a href="#" class="wish_bt"></a>
+                                    <a href="{{route('vendor.detail',[$vendor->vendorProfile->serviceUrl(),$vendor->vendorProfile->businessNameUrl()])}}"><img src="{{asset('img/restaurant_1.jpg')}}" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
+                                    <!-- <small>Paris Centre</small> -->
                               </figure>
-                              <div class="wrapper">
-                                    <h3><a href="{{route('vendor.detail')}}">King food</a></h3>
-                                    <p><i class="icon-location-6"></i> Id placerat tacimates definitionem.</p>
-                                    <span class="price">From <strong>$54</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="ti-eye"></i> 164 views</li>
-                                    <li>
-                                          <div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="{{route('vendor.detail')}}"><img src="img/restaurant_2.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Paris Centre</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="{{route('vendor.detail')}}">Catrine</a></h3>
-                                    <p><i class="icon-location-6"></i> Id placerat tacimates definitionem.</p>
-                                    <span class="price">From <strong>$124</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="ti-eye"></i> 164 views</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="{{route('vendor.detail')}}"><img src="img/restaurant_3.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Paris Centre</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="{{route('vendor.detail')}}">Bella Napoli</a></h3>
-                                    <p><i class="icon-location-6"></i> Id placerat tacimates definitionem.</p>
-                                    <span class="price">From <strong>$25</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="ti-eye"></i> 164 views</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
 
-
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="hotel-detail.html"><img src="img/hotel_6.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Paris Centre</small>
-                              </figure>
                               <div class="wrapper">
-                                    <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                                    <h3><a href="hotel-detail.html">Concorde Hotel</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$95</strong> /per person</span>
+                                    <h3><a href="{{route('vendor.detail',[$vendor->vendorProfile->serviceUrl(),$vendor->vendorProfile->businessNameUrl()])}}">{{ucwords($vendor->vendorProfile->business_name)}}</a></h3>
+                                    <p><i class="icon-location-6"></i> {{ucwords($vendor->vendorProfile->city->city_name)}}</p>
+                                    <span class="price">From <strong>${{mt_rand(100,500)}}</strong> /per person</span>
                               </div>
                               <ul>
-                                    <li><i class="ti-eye"></i> 164 views</li>
+                                    <li><i class="ti-eye"></i> {{mt_rand(100,500)}} views</li>
                                     <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.8</strong></div>
+                                          <div class="score"><span>Superb<em>{{mt_rand(50,500)}} Reviews</em></span><strong>{{mt_rand(1,5)}}</strong></div>
                                     </li>
                               </ul>
                         </div>
                   </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="hotel-detail.html"><img src="img/hotel_4.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Paris Centre</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                                    <h3><a href="hotel-detail.html">Concorde Hotel</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$45</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="ti-eye"></i> 164 views</li>
-                                    <li>
-                                          <div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.0</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="hotel-detail.html"><img src="img/hotel_5.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Paris Centre</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <div class="cat_star"><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i><i class="icon_star"></i></div>
-                                    <h3><a href="hotel-detail.html">Louvre Hotel</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$65</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="ti-eye"></i> 164 views</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.5</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="tour-detail.html"><img src="img/tour_4.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Museum</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="tour-detail.html">Pompidue Museum</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$45</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="icon_clock_alt"></i> 2h 30min</li>
-                                    <li>
-                                          <div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.0</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="tour-detail.html"><img src="img/tour_5.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Walking</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="tour-detail.html">Tour Eiffel</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$65</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.5</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="tour-detail.html"><img src="img/tour_6.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Museum</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="tour-detail.html">Louvre Museum</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$95</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.8</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="tour-detail.html"><img src="img/tour_4.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Museum</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="tour-detail.html">Pompidue Museum</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$45</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="icon_clock_alt"></i> 2h 30min</li>
-                                    <li>
-                                          <div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.0</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item popular">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="tour-detail.html"><img src="img/tour_5.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Walking</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="tour-detail.html">Tour Eiffel</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$65</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.5</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-                  <div class="col-xl-4 col-lg-6 col-md-6 isotope-item latest">
-                        <div class="box_grid">
-                              <figure>
-                                    <a href="#0" class="wish_bt"></a>
-                                    <a href="tour-detail.html"><img src="img/tour_6.jpg" class="img-fluid" alt="" width="800" height="533"><div class="read_more"><span>Read more</span></div></a>
-                                    <small>Museum</small>
-                              </figure>
-                              <div class="wrapper">
-                                    <h3><a href="tour-detail.html">Louvre Museum</a></h3>
-                                    <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$95</strong> /per person</span>
-                              </div>
-                              <ul>
-                                    <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                    <li>
-                                          <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.8</strong></div>
-                                    </li>
-                              </ul>
-                        </div>
-                  </div>
-                  <!-- /box_grid -->
-
+                  @endforeach
             </div>
             <!-- /row -->
-
-
-
-
-
       </div>
       <!-- /isotope-wrapper -->
 
       <p class="text-center" style="margin-bottom:40px;"><a href="#0" class="btn_1 rounded add_top_30">Load more</a></p>
-
+      @endif
 </div>
 <!-- /container -->
 
@@ -402,4 +140,8 @@
       <!-- /container -->
 </div>
 <!-- /bg_color_1 -->
+@endsection
+
+@section('scripts')
+<script src="{{asset('js/welcome.js')}}"></script>
 @endsection

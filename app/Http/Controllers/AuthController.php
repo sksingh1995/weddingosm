@@ -215,7 +215,7 @@ class AuthController extends Controller
             $user->password = bcrypt($req->password);
             $user->token = md5($req->email . time());
             $user->avatar = config('params.avatar_placeholder');
-            $user->referral_code = env('APP_NAME') . '_' . mt_rand(11111, 99999999);
+            $user->referral_code = getReferralCode();
             $user->user_type = env('VENDOR_USER_TYPE');
 
             // send email for verfication
@@ -311,8 +311,8 @@ class AuthController extends Controller
         }
 
         $user = User::whereToken($token)
-            ->where('user_type', env('VENDOR_USER_TYPE'))
-            ->first(['id', 'token']);
+        ->where('user_type', env('VENDOR_USER_TYPE'))
+        ->first(['id', 'token']);
 
         if ($req->query('no-faq') == 1) {
             if ($user) {

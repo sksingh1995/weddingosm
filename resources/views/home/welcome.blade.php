@@ -1,4 +1,9 @@
 @extends('layouts.master') 
+
+@section('meta')
+<meta name="description" content="WeddingOSM - Best Wedding Planning Site - Online Wedding Planner">
+@endsection
+
 @section('main')
 
 <section class="hero_single version_2">
@@ -7,6 +12,13 @@
             <h3>Your Wedding, Your Way</h3>
             <p>Expolore top rated vendors, ideas and more</p>
             @include('includes.vendor-search-form')
+            <ul class="popup-vendor-on-banner">
+                <li><a href=""><i class="icon-location-6"></i> Wedding Venues </a></li>
+                <li><a href=""><i class="icon-camera-6"></i> Wedding Photography </a></li>
+                <li><a href=""><i class="icon-music-1"></i> Wedding Music </a></li>
+                <li><a href=""><i class="icon-diamond"></i>  Bridal Jewellery </a></li>
+                <li><a href=""><i class="icon-book-1"></i> Wedding Invitations </a></li>
+            </ul>
         </div>
 
         <a href="{{route('vendor.register')}}" style="color:#fff;">
@@ -354,4 +366,8 @@
     </div>
 </div>
 <!--/call_section-->
+@endsection
+
+@section('scripts')
+<script src="{{asset('js/welcome.js')}}"></script>
 @endsection
